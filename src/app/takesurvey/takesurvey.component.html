@@ -26,9 +26,7 @@
                     {{counter}} sec
                 </div>
             </div>
-            <div class="container-card-progress mb-3">
-                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width':progress+'%'}" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+            
             <div class="container-card-questions">
                 <mat-card class="container-card-questions-card">
                         <h5>{{questionList[currentQuestion]?.question}}</h5>
@@ -39,7 +37,7 @@
                     <li (click)="Answer(currentQuestion+1, option)">
                         <mat-card class="container-card-options-card">
                             <!--{{option}}-->
-                            <input type="checkbox" class="form-control" #response [value]="[option]">{{option}}
+                            <input type="checkbox" #response [value]="[option]">{{option}}
                         </mat-card>
                     </li>
                 </ol>

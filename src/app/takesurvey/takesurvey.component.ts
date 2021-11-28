@@ -20,7 +20,6 @@ export class TakesurveyComponent implements OnInit {
   public getallQuestions:any=[];
   incorrectAnswer:number=0;
   interval$:any;
-  progress:string="0"
   isquizComplete: boolean=false;
 
   constructor(private router: Router, private survey: SurveyService) { }
@@ -71,22 +70,19 @@ export class TakesurveyComponent implements OnInit {
 
   
   Answer(currentQues:number, option:any){ 
-      
-         
+               
       if(option){  
         setTimeout(() => {
           this.currentQuestion++;
-          this.saveResponses(option)
+          this.saveResponses(option);
           this.ResetTimer();
-          this.getProgreeV();
         }, 1000);
         
       }else{  
         setTimeout(() => {                  
           this.currentQuestion++;
-          this.saveResponses(option)
+          this.saveResponses(option);
           this.ResetTimer();
-          this.getProgreeV();
           
         }, 1000);
         
@@ -134,12 +130,8 @@ export class TakesurveyComponent implements OnInit {
     this.getQuestions();
     //this.points=0;
     this.currentQuestion=0;
-    this.progress ="0";
   }
 
-  getProgreeV(){
-    this.progress = ((this.currentQuestion / this.questionList.length)*100).toString();
-    return this.progress;
-  }
+ 
 
 }
