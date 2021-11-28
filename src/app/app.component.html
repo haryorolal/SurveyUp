@@ -1,0 +1,13 @@
+<mat-toolbar color='primary' fxLayoutGap='8px' class="app-toolbar fixed-top" >
+    <!--<mat-icon  mat-icon-button (click)='sidenav.toggle()' style="color: black ">menu</mat-icon>-->
+    <span style="font-size: 30px; position: absolute; left: 10%; color: black" routerLink='/home'>SurveyUp</span>
+    <span class="flex-spacer"></span>
+    <ul>
+      <li><a [routerLink]="['/home']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a></li>
+    </ul>
+
+  </mat-toolbar>
+<article>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+</article>

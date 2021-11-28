@@ -1,0 +1,98 @@
+
+<mat-card>
+    <div class="container-card" >
+        <div class="container-card-d-flex">
+            <div class="container-card-d-flex-image">
+                <h4 style="font-family: cursive">Survey Quiz</h4>
+            </div>
+            <div class="container-card-d-flex-quiz-header">                
+                <span style="font-style: italic">Welcome {{name}}</span>
+            </div>
+        </div>
+        <ng-container *ngIf="!isquizComplete" >
+            <div class="container-card-d-flex2">
+                <div class="score">
+                    <div style="display:flex; justify-content:space-around; ">
+                            <div style="background-color: tomato; color: white">{{questionList[currentQuestion]?.category}}</div>
+                            <div style="background-color: green; color: white;">{{questionList[currentQuestion]?.type}}</div>
+                            <div style="background-color: red; color: white">{{questionList[currentQuestion]?.difficulty}}</div>
+                    </div>
+                    
+                </div>
+                <div class="question-remain">
+                    <span style="font-style: italic">Question {{currentQuestion+1}} of {{questionList.length}}</span>
+                </div>
+                <div class="timer">
+                    {{counter}} sec
+                </div>
+            </div>
+            <div class="container-card-progress mb-3">
+                <div class="progress-bar progress-bar-striped bg-success" role="progressbar" [ngStyle]="{'width':progress+'%'}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            <div class="container-card-questions">
+                <mat-card class="container-card-questions-card">
+                        <h5>{{questionList[currentQuestion]?.question}}</h5>
+                </mat-card>
+            </div>
+            <div class="container-card-options">
+                <ol *ngFor="let option of questionList[currentQuestion]?.options ">
+                    <li (click)="Answer(currentQuestion+1, option)">
+                        <mat-card class="container-card-options-card">
+                            <!--{{option}}-->
+                            <input type="checkbox" class="form-control" #response [value]="[option]">{{option}}
+                        </mat-card>
+                    </li>
+                </ol>
+            </div>
+            <div class="container-card-d-flex">
+                <button class="btn" [disabled]="currentQuestion === 0" (click)="previousQuestion()" ><mat-icon>first_page</mat-icon></button>
+                <button class="btn" (click)="resertQuiz()"><mat-icon>refresh</mat-icon></button>
+                <button class="btn" [disabled]="currentQuestion == 9" (click)="nextQuestion()" ><mat-icon>last_page</mat-icon></button>
+            </div>
+        </ng-container>
+
+        <ng-container *ngIf="isquizComplete"> 
+                <h3 style="text-align: center">Congratulations</h3>
+               <div class="container-card-endsurvey">
+                    <div class="container-card-endsurvey-result">                
+                            <p>Total Question Attempted : {{questionList.length}}</p>
+                        </div>
+                        
+                    <div class="container-card-endsurvey-queAns">
+                            <p>Question: {{questionList[0]?.question}}</p>
+                            <p> Your Answer : {{ storeIt[0] }} </p>
+            
+                            <p>Question: {{questionList[1]?.question}}</p>
+                            <p> Your Answer : {{ storeIt[1] }} </p>
+    
+                            <p>Question: {{questionList[2]?.question}}</p>
+                            <p> Your Answer : {{ storeIt[2] }} </p>
+            
+                            <p>Question: {{questionList[3]?.question}}</p>
+                            <p> Your Answer : {{ storeIt[3] }} </p>
+    
+                            <p>Question: {{questionList[4]?.question}}</p>
+                            <p> Your Answer : {{ storeIt[4] }} </p>
+            
+                            <p>Question: {{questionList[5]?.question}}</p>
+                            <p> Your Answer : {{ storeIt[5] }} </p>
+    
+                            <p>Question: {{questionList[6]?.question}}</p>
+                            <p> Your Answer : {{ storeIt[6] }} </p>
+            
+                            <p>Question: {{questionList[7]?.question}}</p>
+                            <p> Your Answer : {{ storeIt[7] }} </p>
+    
+                            <p>Question: {{questionList[8]?.question}}</p>
+                            <p> Your Answer : {{ storeIt[8] }} </p>
+            
+                            <p>Question: {{questionList[9]?.question}}</p>
+                            <p> Your Answer : {{ storeIt[9] }} </p>
+    
+                    </div>
+                    
+               </div>
+        </ng-container>
+        
+    </div>
+</mat-card>

@@ -1,0 +1,58 @@
+.container{
+        padding: 10px;
+
+    &-card{
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 10px;
+
+        &-d-flex{
+            display: flex;
+            justify-content: space-between;    
+            align-items: center;    
+        }
+        &-d-flex2{
+            display: flex;
+            justify-content: space-around;    
+            align-items: center; 
+        }
+        &-options{
+            li{
+                list-style-type: none;
+                cursor: pointer;
+                margin: 10px 0;
+            }
+            li .card:hover{
+                border:  1px solid blue;
+            }
+            ol{
+                padding: 0;
+            }
+        }
+
+       &-endsurvey{
+           display: flex;
+           justify-content: space-around;
+
+            &-result{
+                width: 100%;
+                text-align: center;
+            }
+
+            &-queAns{
+                width: 100%;;
+            }
+        }
+        
+        
+
+
+
+    }
+
+          
+    
+    
+   
+}
+
