@@ -102,11 +102,10 @@ export class TakesurveyComponent implements OnInit {
       if(this.counter===0 ){
         this.currentQuestion++;
         this.counter=60;
-        //this.points-=10;
-      }else if(this.currentQuestion === this.questionList.length){
+      }/*else if(this.currentQuestion === this.questionList.length){
         this.stopTimer();
         this.isquizComplete = true;
-      }
+      }*/
     })
     setTimeout(() => {
       this.interval$.unsubscribe();
@@ -128,7 +127,6 @@ export class TakesurveyComponent implements OnInit {
   resertQuiz(){
     this.ResetTimer();
     this.getQuestions();
-    //this.points=0;
     this.currentQuestion=0;
   }
 
